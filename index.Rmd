@@ -5,17 +5,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 My goal is to bring transparency and insight through data in order to enable reflection, planning, and educated action to Eatontown.
 
-<br>
-
 ## Things to look into
-
-<br>
 
 ### Police use of force
 1. Who are the top 5 officers on the list?
 2. How does the Eatontown police force compare to the immediate local area (Shrewsbury on the north, West Long Branch on the east, Ocean Township on the south, and Tinton Falls on the west)?
-
-<br>
 
 ### Land use
 1. What are the types of variances frequently granted?
@@ -23,13 +17,9 @@ My goal is to bring transparency and insight through data in order to enable ref
 3. Who are the real estate developers associated with the variances?
 4. What are the trends in new development? by type, location, and developer
 
-<br>
-
 ### Budget
 1. What's going on with our taxes?
 2. How is the money being spent?
-
-<br>
 
 ### Traffic
 1. Is there seasonality associated with accidents?
