@@ -1,3 +1,7 @@
+h1.title {
+  display: none !important;
+}
+
 .section h2 {
   margin-top: -45px !important;
 }
