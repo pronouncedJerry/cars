@@ -1,24 +1,36 @@
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Introduction
+My goal is to bring transparency and insight through data in order to enable reflection, planning, and educated action to Eatontown.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+<br>
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Things to look into
 
-```{r cars}
-summary(cars)
-```
+<br>
 
-## Including Plots
+### Police use of force
+1. Who are the top 5 officers on the list?
+2. How does the Eatontown police force compare to the immediate local area (Shrewsbury on the north, West Long Branch on the east, Ocean Township on the south, and Tinton Falls on the west)?
 
-You can also embed plots, for example:
+<br>
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+### Land use
+1. What are the types of variances frequently granted?
+2. What parts of town are granted the most variances?
+3. Who are the real estate developers associated with the variances?
+4. What are the trends in new development? by type, location, and developer
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<br>
+
+### Budget
+1. What's going on with our taxes?
+2. How is the money being spent?
+
+<br>
+
+### Traffic
+1. Is there seasonality associated with accidents?
+2. Are there locations that are more dangerous than others?

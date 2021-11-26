@@ -7,6 +7,8 @@ navbar:
     href: index.html
   - text: "About"
     href: about.html
+  - text: "NJTR-1"
+    href: njtr1.html
 output:
  html_document:
   theme: cosmo
