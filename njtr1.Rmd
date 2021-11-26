@@ -4,10 +4,13 @@ title: "NJTR-1 Report"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(here)
 ```
 
 ## NJTR-1 Report
 
-```{r{}
-
+```{r monmouth_data}
+monmouth_gist <- "https://gist.githubusercontent.com/pronouncedJerry/73abdb1e9af412f059906af7fc5c10ee/raw/1df475b071d94c74cea11c0d9a458c9eecbb12be/monmouth"
+monmouth <- read_csv(monmouth_gist)
 ```
