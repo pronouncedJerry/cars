@@ -5,8 +5,6 @@ title: "NJTR-1 Report"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-library(here)
-library(data.table)
 ```
 
 ## NJTR-1 Report
@@ -29,7 +27,9 @@ eatontown_sm %>%
   arrange(desc(count)) %>%
   head(10) %>%
   ggplot(aes(x = reorder(crash_location, count), y = count)) +
-  ggtitle("Top 10 Crash Locations") + xlab("Locations") + ylab("Number of crashes") +
+  ggtitle("Top 10 Crash Locations") +
+  xlab("Locations") +
+  ylab("Number of crashes") +
   geom_bar(stat = "identity") + geom_text(aes(label = count), hjust=0) +
   coord_flip()
 
@@ -48,7 +48,5 @@ eatontown_sm %>%
 # "ROUTE 537" = "Tinton Ave"
 # "INDUSTRIAL WAY W" = "Indust Way W"
 # "MONMOUTH COUNTY 32" = "Wall St"
-
-
 
 ```
