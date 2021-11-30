@@ -270,18 +270,20 @@ $(document).ready(function () {
 
 <div id="njtr-1-report" class="section level2">
 <h2>NJTR-1 Report</h2>
-<pre class="r"><code>monmouth_gist &lt;- &quot;https://gist.githubusercontent.com/pronouncedJerry/73abdb1e9af412f059906af7fc5c10ee/raw/1df475b071d94c74cea11c0d9a458c9eecbb12be/monmouth&quot;
-monmouth &lt;- read_csv(monmouth_gist)</code></pre>
-<pre><code>## Rows: 17918 Columns: 50</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr  (22): id, county_name, municipality_name, crash_day_of_week, police_dep...
-## dbl  (25): crash_time, police_dept_code, total_killed, total_injured, pedest...
-## lgl   (2): road_character, is_ramp
-## date  (1): crash_date</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<p><img src="njtr1_files/figure-html/monmouth_data-1.png" width="672" /></p>
+<pre><code>## # A tibble: 10 × 2
+##    crash_location     count
+##    &lt;chr&gt;              &lt;int&gt;
+##  1 NJ 36                232
+##  2 NJ 35                187
+##  3 ROUTE 547             57
+##  4 MONMOUTH COUNTY 51    32
+##  5 NJ 71                 22
+##  6 NJ 18                 18
+##  7 ROUTE 537             17
+##  8 INDUSTRIAL WAY W      16
+##  9 MONMOUTH COUNTY 32    11
+## 10 SOUTH ST **           10</code></pre>
 </div>
 
 

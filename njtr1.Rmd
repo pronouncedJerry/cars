@@ -6,11 +6,49 @@ title: "NJTR-1 Report"
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(here)
+library(data.table)
 ```
 
 ## NJTR-1 Report
 
-```{r monmouth_data}
+```{r monmouth_data, echo=FALSE, message=FALSE}
+
+# Grab the dataset
 monmouth_gist <- "https://gist.githubusercontent.com/pronouncedJerry/73abdb1e9af412f059906af7fc5c10ee/raw/1df475b071d94c74cea11c0d9a458c9eecbb12be/monmouth"
 monmouth <- read_csv(monmouth_gist)
+
+# Select only eatontown data and relevant columns
+eatontown_sm <- monmouth %>%
+  filter(municipality_name == "EATONTOWN BORO") %>%
+  select(crash_date, crash_location, total_injured, total_killed)
+
+# Display barplot of top 10 locations sorted by count
+eatontown_sm %>% 
+  group_by(crash_location) %>%
+  summarise(count=n()) %>%
+  arrange(desc(count)) %>%
+  head(10) %>%
+  ggplot(aes(x = reorder(crash_location, count), y = count)) +
+  ggtitle("Top 10 Crash Locations") + xlab("Locations") + ylab("Number of crashes") +
+  geom_bar(stat = "identity") + geom_text(aes(label = count), hjust=0) +
+  coord_flip()
+
+
+# Display top 10 locations sorted by count
+eatontown_sm %>% 
+  group_by(crash_location) %>%
+  summarise(count=n()) %>%
+  arrange(desc(count)) %>%
+  head(10)
+
+
+# "ROUTE 547" = "Wykoff/Shafto Rds"
+# "MONMOUTH COUNTY 51" = "Hope Rd"
+# "NJ 71" = "Monmouth Rd"
+# "ROUTE 537" = "Tinton Ave"
+# "INDUSTRIAL WAY W" = "Indust Way W"
+# "MONMOUTH COUNTY 32" = "Wall St"
+
+
+
 ```
