@@ -1,5 +1,5 @@
 ---
-title: "Dashboard"
+title: "Eatontown Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -13,27 +13,165 @@ library(ggplot2)
 library(tidyverse)
 ```
 
-
-Column {.tabset}
+Demographics
+=====================================  
+    
+Row
 -------------------------------------
-
-### Demographics
+    
+### Total Population [time-series]
     
 ```{r}
-
 ```
+
+> OPRA request or Census data?
+
+Row
+-------------------------------------
    
-Row 2 {.tabset}
+### Population by Race [time-series]
+
+```{r}
+```   
+
+> OPRA request or Census data?
+
+### Population by Age Group [grouped bar]
+    
+```{r}
+```
+
+> OPRA request or Census data?
+
+Row
 -------------------------------------
-    
-### Financial
-    
-```{r}
-
-```
-    
-### Land Use
+   
+### Median Household Income [time-series]
 
 ```{r}
+```   
 
+> OPRA request or Census data?
+
+### Median Household Income Brackets [grouped bar]
+    
+```{r}
 ```
+
+> OPRA request or Census data?
+
+Financials
+=====================================     
+   
+Row
+-------------------------------------
+
+### Budget [time-series]
+
+```{r}
+```
+
+> OPRA request: "Yearly starting budget from 2010 to 2020."?
+
+Row
+-------------------------------------
+   
+### Deficit/Surplus [time-series]
+
+```{r}
+```   
+
+> OPRA Request: "Yearly ending deficit/surplus from 2010 to 2020."?
+
+### Spend by Category [grouped bar]
+
+```{r}
+```
+
+> OPRA request: "Yearly spend by category from 2010 to 2020."?
+
+Row
+-------------------------------------
+   
+### Salary by Department [time-series]
+
+```{r}
+```   
+
+> OPRA request: "Total paid compenstation for all employees from 2010 to 2020. Include year, name, department, and total compenstation including overtime."?
+
+### Top Salary Earners [datatable]
+
+```{r}
+```
+
+> Re-use data from "Salary by Department" request.
+
+Land Use
+=====================================     
+   
+Row
+-------------------------------------
+
+### Zones [by type (res, comm, indust, agri), time-series]
+
+```{r}
+```  
+
+> OPRA request or Census data?
+
+Row
+-------------------------------------
+
+### Median Household Price [time-series]
+
+```{r}
+```   
+
+> OPRA request or Census data?
+
+Row
+-------------------------------------
+
+### Dwelling Types [by type (apt, house, etc.), time-series]
+
+```{r}
+```   
+
+> OPRA request or Census data?
+
+### Housing Types [by type (rent, own, etc.), time-series]
+
+```{r}
+```
+
+> OPRA request or Census data?
+
+Row
+-------------------------------------
+
+### Development Permits Granted [by type, time-series]
+
+```{r}
+```   
+
+> OPRA Request: "Permits granted from 2010 to 2020. Include date, permit type, requestor, grantor."
+
+Row
+-------------------------------------
+
+### Top Permit Requestors [datatable]
+
+```{r}
+```
+
+> Re-use data from "Development Permits Granted" request.
+
+### Top Variance Requestors [datatable]
+
+```{r}
+```
+
+> OPRA Request: "Variances granted from 2010 to 2020. Include date, permit type, requestor, grantor."
+
+
