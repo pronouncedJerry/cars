@@ -3,59 +3,101 @@ title: "Eatontown Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-library(readr)
-library(lubridate)
 library(ggplot2)
 library(tidyverse)
+library(plotly)
+
+knitr::opts_chunk$set (echo=FALSE, message=FALSE)
+
+# Yikes looks like https://datausa.io/profile/geo/eatontown-nj already does this
 ```
 
 Demographics
 =====================================  
     
-Row
+Row {data-height=250}
 -------------------------------------
     
-### Total Population [time-series]
+### Total Population
     
 ```{r}
+pop_total <- data.frame(year=c("2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"),
+                estimate=c(12459,12320,12249,12206,12181,12198,12238,12297,12238,12175,12132))
+
+plot_pop_total <- ggplot(pop_total, aes(x=year, y=estimate, group=1)) +
+  geom_line()+
+  geom_point()
+
+ggplotly(plot_pop_total)
 ```
 
-> OPRA request or Census data?
+> vastly different estimates between https://data.census.gov/cedsci/table?q=eatontown and https://nj.gov/labor/lpa/dmograph/est/mcdest2009.htm
 
-Row
+Row {data-height=250}
 -------------------------------------
    
-### Population by Race [time-series]
+### Population by Race
 
 ```{r}
+pop_race <- read_csv("data/population_by_race.csv")
+
+plot_pop_race <- ggplot(pop_race, aes(fill=Race, y=Estimate, x=Year)) + 
+    geom_bar(position="stack", stat="identity") + 
+    scale_fill_manual(values = c("gray", "snow4", "gray39"))
+
+ggplotly(plot_pop_race)
+
 ```   
 
-> OPRA request or Census data?
+> Mocked up for now. OPRA request or Census data?
 
-### Population by Age Group [grouped bar]
+### Population by Age Group
     
 ```{r}
+pop_age <- read_csv("data/population_by_age.csv")
+
+plot_pop_age <- ggplot(pop_age, aes(fill=Group, y=Estimate, x=Year)) + 
+    geom_bar(position="stack", stat="identity") + 
+    scale_fill_manual(values = c("gray", "snow4", "gray39"))
+
+ggplotly(plot_pop_age)
 ```
 
-> OPRA request or Census data?
+> Mocked up for now. OPRA request or Census data?
 
-Row
+Row {data-height=250}
 -------------------------------------
    
-### Median Household Income [time-series]
+### Median Household Income
 
 ```{r}
+household_income <- data.frame(year=c("2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"),
+                estimate=c(58012,58821,59921,60013,58101,61358,63293,63555,63201,66001,66125))
+
+plot_household_income <- ggplot(household_income, aes(x=year, y=estimate, group=1)) +
+  geom_line()+
+  geom_point()
+
+ggplotly(plot_household_income)
 ```   
 
-> OPRA request or Census data?
+> Mocked up for now. OPRA request or Census data?
 
 ### Median Household Income Brackets [grouped bar]
     
 ```{r}
+income_age <- read_csv("data/income_by_age.csv")
+
+plot_income_age <- ggplot(income_age, aes(fill=Group, y=Estimate, x=Year)) + 
+    geom_bar(position="dodge", stat="identity") + 
+    scale_fill_manual(values = c("gray", "snow4", "gray39"))
+
+ggplotly(plot_income_age)
 ```
 
 > OPRA request or Census data?
@@ -63,17 +105,18 @@ Row
 Financials
 =====================================     
    
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Budget [time-series]
 
 ```{r}
+
 ```
 
 > OPRA request: "Yearly starting budget from 2010 to 2020."?
 
-Row
+Row {data-height=250}
 -------------------------------------
    
 ### Deficit/Surplus [time-series]
@@ -90,7 +133,7 @@ Row
 
 > OPRA request: "Yearly spend by category from 2010 to 2020."?
 
-Row
+Row {data-height=250}
 -------------------------------------
    
 ### Salary by Department [time-series]
@@ -110,7 +153,7 @@ Row
 Land Use
 =====================================     
    
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Zones [by type (res, comm, indust, agri), time-series]
@@ -120,7 +163,7 @@ Row
 
 > OPRA request or Census data?
 
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Median Household Price [time-series]
@@ -130,7 +173,7 @@ Row
 
 > OPRA request or Census data?
 
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Dwelling Types [by type (apt, house, etc.), time-series]
@@ -147,7 +190,7 @@ Row
 
 > OPRA request or Census data?
 
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Development Permits Granted [by type, time-series]
@@ -157,7 +200,7 @@ Row
 
 > OPRA Request: "Permits granted from 2010 to 2020. Include date, permit type, requestor, grantor."
 
-Row
+Row {data-height=250}
 -------------------------------------
 
 ### Top Permit Requestors [datatable]
