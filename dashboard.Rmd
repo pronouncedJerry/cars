@@ -1,0 +1,39 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(readr)
+library(lubridate)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+Column {.tabset}
+-------------------------------------
+
+### Demographics
+    
+```{r}
+
+```
+   
+Row 2 {.tabset}
+-------------------------------------
+    
+### Financial
+    
+```{r}
+
+```
+    
+### Land Use
+
+```{r}
+
+```

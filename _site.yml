@@ -9,6 +9,8 @@ navbar:
     href: about.html
   - text: "NJTR-1"
     href: njtr1.html
+  - text: "Dashboard"
+    href: dashboard.html
 output:
  html_document:
   theme: cosmo

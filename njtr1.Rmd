@@ -9,6 +9,8 @@ library(tidyverse)
 
 ## NJTR-1 Report
 
+Data pulled from NJTR-1 Accidents Report 2019.
+
 ```{r monmouth_data, echo=FALSE, message=FALSE}
 
 # Grab the dataset
