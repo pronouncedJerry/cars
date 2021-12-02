@@ -1,0 +1,20 @@
+---
+title: "Did You Know"
+output: html_document
+---
+
+### December 1, 2021
+Eatontown\'s **population** has been declining since 2017 at a steady rate of 15%  per year. Compared to the adjance municipalities, it ranks first in the decline.
+
+[chart comparison]
+
+\#population
+
+### November 23, 2021
+Eatontown spent 35% of the 2021 **budget** on a new Public Works building. Check out [CentralJersey.com's article](https://centraljersey.com/2021/06/18/eatontown-budget-adopted/) for more details.
+
+[chart]
+
+\#budget
+
+## November 11, 2021

@@ -5,3 +5,8 @@ h1.title {
 .section h2 {
   margin-top: -45px !important;
 }
+
+.section h3 {
+  margin-top: -25px !important;
+  font-weight: bold;
+}

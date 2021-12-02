@@ -5,10 +5,8 @@ navbar:
  left:
   - text: "Home"
     href: index.html
-  - text: "About"
-    href: about.html
-  - text: "NJTR-1"
-    href: njtr1.html
+  - text: "Did You Know?"
+    href: dyk.html
   - text: "Dashboard"
     href: dashboard.html
 output:
