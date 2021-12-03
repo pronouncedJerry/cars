@@ -11,6 +11,7 @@ library(flexdashboard)
 library(ggplot2)
 library(tidyverse)
 library(plotly)
+library(DT)
 
 knitr::opts_chunk$set (echo=FALSE, message=FALSE)
 
@@ -108,10 +109,18 @@ Financials
 Row {data-height=250}
 -------------------------------------
 
-### Budget [time-series]
+### Budget
 
 ```{r}
+budget <- data.frame(year=c("2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"),
+                amount=c(21.0,22.0,22.6,23.05,23.35,23.9,24.9,25.0,26.25,27.7,28.66))
 
+plot_budget <- ggplot(budget, aes(x=year, y=amount, group=1)) +
+  geom_line()+
+  geom_point() +
+  ylab("amount in millions")
+
+ggplotly(plot_budget)
 ```
 
 > OPRA request: "Yearly starting budget from 2010 to 2020."?
@@ -126,9 +135,16 @@ Row {data-height=250}
 
 > OPRA Request: "Yearly ending deficit/surplus from 2010 to 2020."?
 
-### Spend by Category [grouped bar]
+### Expenditures by Category [horizontal grouped bar]
 
 ```{r}
+expenditures <- read_csv("data/expenditures.csv")
+
+plot_expenditures <- ggplot(expenditures, aes(fill=Category, y=Amount, x=Year)) + 
+    geom_bar(position="stack", stat="identity") + 
+    scale_fill_manual(values = c("gray", "snow4", "gray39", "gray20", "gray10"))
+
+ggplotly(plot_expenditures)
 ```
 
 > OPRA request: "Yearly spend by category from 2010 to 2020."?
@@ -136,32 +152,38 @@ Row {data-height=250}
 Row {data-height=250}
 -------------------------------------
    
-### Salary by Department [time-series]
+### Salary by Department
 
 ```{r}
+salary <- read_csv("data/salary.csv")
+
+plot_salary <- ggplot(salary, aes(fill=Category, y=Amount, x=Year)) + 
+    geom_bar(position="stack", stat="identity") + 
+    scale_fill_manual(values = c("gray", "snow4", "gray39", "gray20", "gray10")) + 
+    coord_flip()
+
+ggplotly(plot_salary)
 ```   
 
 > OPRA request: "Total paid compenstation for all employees from 2010 to 2020. Include year, name, department, and total compenstation including overtime."?
 
-### Top Salary Earners [datatable]
+Row
+-------------------------------------
+
+### Top Compensation Earners
 
 ```{r}
+df <- data.frame(Name=rep(c('A', 'B', 'C', 'D'), each=4),
+                 Department=rep(c('G', 'F'), times=8),
+                 Compensation=round(runif(16, 4, 20),0))
+
+datatable(df, rownames=FALSE, height=500)
 ```
 
 > Re-use data from "Salary by Department" request.
 
 Land Use
-=====================================     
-   
-Row {data-height=250}
--------------------------------------
-
-### Zones [by type (res, comm, indust, agri), time-series]
-
-```{r}
-```  
-
-> OPRA request or Census data?
+=====================================
 
 Row {data-height=250}
 -------------------------------------
@@ -169,6 +191,7 @@ Row {data-height=250}
 ### Median Household Price [time-series]
 
 ```{r}
+
 ```   
 
 > OPRA request or Census data?
@@ -179,6 +202,7 @@ Row {data-height=250}
 ### Dwelling Types [by type (apt, house, etc.), time-series]
 
 ```{r}
+
 ```   
 
 > OPRA request or Census data?
